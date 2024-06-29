@@ -18,6 +18,9 @@ import { LdapEditComponent } from './ldap-management/ldap-edit/ldap-edit.compone
 import { LdapAddComponent } from './ldap-management/ldap-add/ldap-add.component';
 import { AlertComponent } from './share/alert/alert.component';
 import { LdapManagementModule } from './ldap-management/ldap-management.module';
+import {HttpClientModule} from "@angular/common/http";
+import {HttpClientInMemoryWebApiModule} from "angular-in-memory-web-api";
+import {InMemoryUsersService} from "./in-memory-users.service";
 
 @NgModule({
   declarations: [
@@ -32,6 +35,8 @@ import { LdapManagementModule } from './ldap-management/ldap-management.module';
     AppMaterialModule,
     LdapManagementModule,
     AppRoutingModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryUsersService, {dataEncapsulation: false})
   ],
   providers: [],
   bootstrap: [AppComponent]
